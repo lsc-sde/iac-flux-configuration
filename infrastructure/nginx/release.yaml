@@ -5,10 +5,10 @@ metadata:
   namespace: cluster-config
 spec:
   targetNamespace: nginx
-  releaseName: nginx-ingress
+  releaseName: ingress-nginx
   chart:
     spec:
-      chart: nginx-ingress
+      chart: ingress-nginx
       sourceRef:
         kind: HelmRepository
         name: nginx
@@ -16,7 +16,7 @@ spec:
   interval: 5m0s
   install:
     remediation:
-      retries: 3
+      retries: 5
   values:
     controller:
       replicaCount: 2
