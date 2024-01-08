@@ -4,4 +4,5 @@ namespace: cluster-config
 resources:
   - nginx.yaml
   - keda.yaml
+  - prefect.yaml
   - namespace.yaml
