@@ -11,7 +11,7 @@ spec:
       chart: nginx-ingress-controller
       sourceRef:
         kind: HelmRepository
-        name: bitnami
+        name: nginx
         namespace: cluster-config
   interval: 5m0s
   install:
