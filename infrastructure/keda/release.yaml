@@ -1,0 +1,19 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: nginx
+  namespace: cluster-config
+spec:
+  targetNamespace: keda
+  releaseName: keda
+  chart:
+    spec:
+      chart: keda
+      sourceRef:
+        kind: HelmRepository
+        name: keda
+        namespace: cluster-config
+  interval: 1h0m0s
+  install:
+    remediation:
+      retries: 3
