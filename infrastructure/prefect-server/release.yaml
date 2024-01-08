@@ -17,3 +17,36 @@ spec:
   install:
     remediation:
       retries: 3
+  values:
+    server:
+      prefectApiUrl: http://prefect.privatelink.uksouth.azmk8s.io/api
+      image:
+        prefectTag: 2.8.6-python3.11
+      resources:
+        requests:
+          cpu: 100m
+          memory: 512Mi
+        limits:
+          cpu: 1000m
+          memory: 2Gi
+    service:
+      type: "LoadBalancer"
+      port: 4200
+      targetPort: 4200
+      externalTrafficPolicy: "Cluster"
+      annotations:
+        "service.beta.kubernetes.io/azure-load-balancer-internal" : "true"
+    ingress:
+      enabled: true
+      className: nginx
+      host: 
+        hostname: "prefect.privatelink.uksouth.azmk8s.io"
+        pathType: "Prefix"
+        path: /
+      annotations:
+        "nginx.ingress.kubernetes.io/ssl-redirect" : "false"
+
+    postgresql:
+      enabled: true
+      auth:
+        password: "Testing!23"
