@@ -5,10 +5,10 @@ metadata:
   namespace: cluster-config
 spec:
   targetNamespace: nginx
-  releaseName: nginx-ingress-controller
+  releaseName: nginx-ingress
   chart:
     spec:
-      chart: nginx-ingress-controller
+      chart: nginx-ingress
       sourceRef:
         kind: HelmRepository
         name: nginx
