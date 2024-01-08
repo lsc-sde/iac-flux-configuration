@@ -4,3 +4,4 @@ namespace: cluster-config
 resources:
   - nginx.yaml
   - keda.yaml
+  - namespace.yaml
